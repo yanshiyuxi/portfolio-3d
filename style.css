@@ -1,514 +1,738 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>颜诗雨 · Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Cormorant+SC:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* ── LUXURY PORTFOLIO · style.css ── */
 
-<!-- CURSOR -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-follower" id="cursor-follower"></div>
+:root {
+  --black:   #0c0b09;
+  --deep:    #111009;
+  --surface: #16140f;
+  --panel:   #1c1a14;
+  --border:  #2e2b21;
+  --border2: #3d3a2d;
+  --gold:    #c9a84c;
+  --gold2:   #e8c97a;
+  --gold-dim: rgba(201,168,76,0.15);
+  --cream:   #f0e8d8;
+  --silver:  #a09880;
+  --muted:   #6a6354;
+  --white:   #fdf8f0;
+}
 
-<!-- NAV -->
-<nav id="main-nav">
-  <a class="nav-logo" href="#hero">
-    <span class="nav-logo-cn">颜诗雨</span>
-    <span class="nav-logo-divider"></span>
-    <span class="nav-logo-en">YAN SHIYU</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about"><span>01</span>关于</a></li>
-    <li><a href="#works"><span>02</span>作品</a></li>
-    <li><a href="#experience"><span>03</span>经历</a></li>
-    <li><a href="#skills"><span>04</span>技能</a></li>
-    <li><a href="#contact"><span>05</span>联系</a></li>
-  </ul>
-</nav>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg-text" aria-hidden="true">PORTFOLIO</div>
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.75;
+  overflow-x: hidden;
+  cursor: none;
+}
 
-  <div class="hero-inner">
-    <div class="hero-left reveal">
-      <div class="hero-label">
-        <div class="hero-label-line"></div>
-        <span>Portfolio · 2026</span>
-      </div>
-      <h1 class="hero-name">
-        <span class="hero-name-cn">颜诗雨</span>
-        <span class="hero-name-en">Yan Shiyu</span>
-      </h1>
-      <div class="hero-roles">
-        <div class="hero-role">内容创作</div>
-        <div class="hero-role-dot">·</div>
-        <div class="hero-role">影视制片</div>
-        <div class="hero-role-dot">·</div>
-        <div class="hero-role">媒介运营</div>
-      </div>
-      <div class="hero-edu">
-        北京师范大学 &ensp;/&ensp; 戏剧影视文学 &ensp;/&ensp; 软科2025专业排名 No.1
-      </div>
-      <div class="hero-actions">
-        <a class="btn-primary" href="#works">
-          <span>查看作品</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a class="btn-ghost" href="#contact">联系我</a>
-      </div>
-    </div>
-    <div class="hero-right reveal reveal-delay">
-      <div class="hero-photo-frame">
-        <div class="hero-photo-inner">
-          <!-- 替换为：<img src="你的照片.jpg" alt="颜诗雨"> -->
-          <div class="photo-placeholder">
-            <span>在此放置照片</span>
-            <span class="photo-placeholder-sub">建议 3:4 竖版</span>
-          </div>
-        </div>
-        <div class="hero-photo-corner tl"></div>
-        <div class="hero-photo-corner tr"></div>
-        <div class="hero-photo-corner bl"></div>
-        <div class="hero-photo-corner br"></div>
-      </div>
-      <div class="hero-contact-side">
-        <div class="hero-contact-item">
-          <span class="contact-icon-small">✉</span>
-          <span>377172639@qq.com</span>
-        </div>
-        <div class="hero-contact-item">
-          <span class="contact-icon-small">☏</span>
-          <span>180-9638-7829</span>
-        </div>
-      </div>
-    </div>
-  </div>
+/* ── CUSTOM CURSOR ── */
+.cursor {
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background 0.2s;
+}
+.cursor-follower {
+  width: 28px; height: 28px;
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease, width 0.3s, height 0.3s;
+}
+body:has(a:hover) .cursor { width: 12px; height: 12px; background: var(--gold2); }
+body:has(a:hover) .cursor-follower { width: 44px; height: 44px; border-color: var(--gold); }
 
-  <div class="hero-scroll-hint">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
-  </div>
-</section>
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 22px 60px;
+  background: rgba(12,11,9,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: padding 0.4s, box-shadow 0.4s;
+}
+nav.scrolled {
+  padding: 16px 60px;
+  box-shadow: 0 1px 40px rgba(0,0,0,0.6);
+}
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <div class="section-num">01</div>
-      <div class="section-title-block">
-        <h2 class="section-title-cn">关于我</h2>
-        <span class="section-title-en">About Me</span>
-      </div>
-      <div class="section-line"></div>
-    </div>
-    <div class="about-layout reveal">
-      <div class="about-pull-col">
-        <blockquote class="about-pull">
-          从0到1的策划，<br>
-          到上线后的数据复盘，<br>
-          我都能独立完成全链路。
-        </blockquote>
-        <div class="about-badge">
-          <div class="about-badge-num">4</div>
-          <div class="about-badge-label">家头部媒体<br>实习经历</div>
-        </div>
-      </div>
-      <div class="about-text-col">
-        <p class="about-body">我是<em>颜诗雨</em>，北京师范大学戏剧影视文学专业26届毕业生，所学专业软科2025年全国排名第一。</p>
-        <p class="about-body">我的过往经历横跨<em>商业纪录片制作、剧情短片统筹、社交媒体运营与影视内容创作</em>。无论是内容策划、现场执行、KOL建联，还是数据复盘与传播方案，我都在真实的商业项目中完整走过全链路。</p>
-        <p class="about-body">2024年起先后在<em>快手科技、哇唧唧哇、《人物》杂志、1905电影网</em>实习，覆盖纪录片、综艺、杂志新媒体与电影资讯全赛道。</p>
-        <div class="about-tags">
-          <span class="about-tag">北京师范大学 985</span>
-          <span class="about-tag">26届</span>
-          <span class="about-tag">内容全链路</span>
-          <span class="about-tag">AI协作创作</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+.nav-logo {
+  display: flex; align-items: center; gap: 14px;
+  text-decoration: none;
+}
+.nav-logo-cn {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 16px; font-weight: 500;
+  color: var(--cream); letter-spacing: 0.08em;
+}
+.nav-logo-divider {
+  width: 1px; height: 16px;
+  background: var(--border2);
+}
+.nav-logo-en {
+  font-family: 'Cormorant SC', serif;
+  font-size: 11px; font-weight: 400;
+  color: var(--gold); letter-spacing: 0.3em;
+}
+.nav-links {
+  display: flex; gap: 40px; list-style: none;
+}
+.nav-links a {
+  font-family: 'Cormorant SC', serif;
+  font-size: 11px; letter-spacing: 0.22em;
+  color: var(--muted); text-decoration: none;
+  transition: color 0.25s;
+  display: flex; align-items: center; gap: 7px;
+}
+.nav-links a span {
+  font-size: 9px; color: var(--gold);
+  opacity: 0.7; letter-spacing: 0.1em;
+}
+.nav-links a:hover { color: var(--cream); }
 
-<!-- WORKS -->
-<section id="works">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <div class="section-num">02</div>
-      <div class="section-title-block">
-        <h2 class="section-title-cn">作品选集</h2>
-        <span class="section-title-en">Selected Works</span>
-      </div>
-      <div class="section-line"></div>
-    </div>
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 0 60px;
+  position: relative; overflow: hidden;
+  background: var(--deep);
+}
 
-    <div class="works-category reveal">
-      <div class="cat-header">
-        <div class="cat-rule"></div>
-        <span class="cat-name">Commercial Content Creation</span>
-        <span class="cat-name-cn">商业内容创作</span>
-      </div>
-    </div>
+/* Large bg text */
+.hero-bg-text {
+  position: absolute;
+  right: -0.05em; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Cormorant SC', serif;
+  font-size: clamp(120px, 18vw, 240px);
+  font-weight: 300;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(201,168,76,0.06);
+  letter-spacing: 0.1em;
+  pointer-events: none; user-select: none;
+  white-space: nowrap;
+}
 
-    <article class="work-item reveal">
-      <div class="work-num">01</div>
-      <div class="work-body">
-        <div class="work-meta">
-          <h3 class="work-title">快手纪录片全案</h3>
-          <p class="work-subtitle">Documentary Full Campaign</p>
-          <div class="work-info-row">
-            <span class="work-org">快手科技</span>
-            <span class="work-year">2024 — 2025</span>
-          </div>
-        </div>
-        <div class="work-content">
-          <p class="work-desc">两部纪录片，从选题策划到传播复盘，全案参与执行。</p>
-          <div class="work-highlight">
-            <div class="work-highlight-title">《像岩石一样生活》× 可灵AI 联合出品</div>
-            <div class="work-highlight-desc">首部融合AI影像生成技术的快手纪录片项目，探索AI工具在纪实影像创作中的可能性边界。</div>
-          </div>
-          <div class="work-highlight">
-            <div class="work-highlight-title">《西北刀客》× 京东3C数码 品牌植入</div>
-            <div class="work-highlight-desc">面向京东3C数码用户圈层的内容营销案例，将品牌植入自然融入纪实叙事。</div>
-          </div>
-          <div class="work-chips-row">
-            <span class="work-chip">选题策划</span><span class="work-chip">实地拍摄</span>
-            <span class="work-chip">传播方案</span><span class="work-chip">KOL建联</span>
-            <span class="work-chip">数据复盘</span><span class="work-chip">AI协作</span>
-          </div>
-          <div class="work-media-grid">
-            <div class="media-ph"><span>纪录片现场 / 海报</span></div>
-            <div class="media-ph"><span>西北刀客 宣传图</span></div>
-          </div>
-        </div>
-      </div>
-    </article>
+/* Gold grain overlay */
+#hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 30% 50%, rgba(201,168,76,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
 
-    <article class="work-item reveal">
-      <div class="work-num">02</div>
-      <div class="work-body">
-        <div class="work-meta">
-          <h3 class="work-title">人物官博运营</h3>
-          <p class="work-subtitle">#Yellow Portrait#</p>
-          <div class="work-info-row">
-            <span class="work-org">《人物》杂志</span>
-            <span class="work-year">2024 — 2025</span>
-          </div>
-        </div>
-        <div class="work-content">
-          <p class="work-desc">《人物》杂志旗下微博栏目 <em>#Yellow Portrait#</em>，以音乐、电影、书籍文化为核心选题，深度解读时代坐标与精神图谱。</p>
-          <p class="work-desc">负责管理5个平台官方账号，独立撰写原创博文，运用精准内容营销策略驱动粉丝互动。</p>
-          <div class="work-stats-row">
-            <div class="work-stat">
-              <div class="work-stat-num">1,000<em>万+</em></div>
-              <div class="work-stat-label">博文累计阅读量</div>
-            </div>
-            <div class="work-stat">
-              <div class="work-stat-num">100<em>万+</em></div>
-              <div class="work-stat-label">单条最高阅读量</div>
-            </div>
-            <div class="work-stat">
-              <div class="work-stat-num">5<em>万+</em></div>
-              <div class="work-stat-label">运营期间粉丝增长</div>
-            </div>
-          </div>
-          <div class="media-ph" style="height:180px;margin-top:24px;"><span>运营截图 / 博文数据</span></div>
-        </div>
-      </div>
-    </article>
+/* Decorative horizontal rules */
+#hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 60px; right: 60px;
+  height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
 
-    <div class="works-category reveal" style="margin-top:80px;">
-      <div class="cat-header">
-        <div class="cat-rule"></div>
-        <span class="cat-name">Film & Criticism</span>
-        <span class="cat-name-cn">影视创作</span>
-      </div>
-    </div>
+.hero-inner {
+  display: grid; grid-template-columns: 1fr 380px;
+  gap: 80px; align-items: center;
+  max-width: 1200px; width: 100%; margin: 0 auto;
+  padding-top: 80px;
+}
 
-    <article class="work-item reveal">
-      <div class="work-num">03</div>
-      <div class="work-body">
-        <div class="work-meta">
-          <h3 class="work-title">短片《靡糜》</h3>
-          <p class="work-subtitle">Fade Away · 2024 · 制片主任</p>
-          <div class="work-info-row">
-            <span class="work-org">北京国际电影节</span>
-            <span class="work-year">2024</span>
-          </div>
-          <div class="award-tag">
-            <div class="award-dot"></div>
-            <span>第33届大学生电影节 入围</span>
-          </div>
-          <div class="award-sub">国际大学生原创影片单元</div>
-          <div class="work-chips-row" style="margin-top:20px;">
-            <span class="work-chip">统筹6个部门</span>
-            <span class="work-chip">20+人剧组</span>
-          </div>
-        </div>
-        <div class="work-content">
-          <p class="work-desc">复读高考结束的女孩<em>古果</em>，在家庭变故后与精神不稳定的母亲搬进破旧筒子楼。她结识了经营地下放映厅的边缘少年<em>留白</em>，又因好友绮丽的"长大"陷入身份认同的迷茫。</p>
-          <blockquote class="film-quote">"一个关于创伤、模仿<br>与自我救赎失败的故事。"</blockquote>
-          <p class="work-desc">古果模仿绮丽的装扮与行为，试图借助他者重构自我——却在最亲密的瞬间彻底崩溃。最终，她在画作与镜子的虚实交错中觉醒，抱起残缺的人体模特离开。</p>
-          <details class="film-details">
-            <summary>创作阐述 <span>↓</span></summary>
-            <div class="film-details-body">
-              <p>本片以"创伤叙事"为核心，探讨当代青年在结构性压迫下的身份认同困境。古果的"成长仪式"始终无法完成——大学、爱情、艺术，所有出口都走向幻灭。影片不提供救赎，只记录一次"卸下伪装"的瞬间。</p>
-            </div>
-          </details>
-          <div class="film-stills">
-            <div class="media-ph film-still-ph"><span>拍摄现场</span></div>
-            <div class="media-ph film-still-ph"><span>电影截帧</span></div>
-            <div class="media-ph film-still-ph"><span>海报 / 证书</span></div>
-          </div>
-        </div>
-      </div>
-    </article>
+.hero-label {
+  display: flex; align-items: center; gap: 16px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 10px; letter-spacing: 0.35em;
+  color: var(--gold); margin-bottom: 32px;
+}
+.hero-label-line {
+  width: 40px; height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
 
-    <article class="work-item reveal">
-      <div class="work-num">04</div>
-      <div class="work-body">
-        <div class="work-meta">
-          <h3 class="work-title">《宇宙探索编辑部》影评</h3>
-          <p class="work-subtitle">Film Criticism</p>
-          <div class="work-info-row">
-            <span class="work-org">北京国际电影节</span>
-            <span class="work-year">2023</span>
-          </div>
-          <div class="award-tag">
-            <div class="award-dot"></div>
-            <span>第31届大学生电影节 入围</span>
-          </div>
-          <div class="award-sub">影评推选单元</div>
-        </div>
-        <div class="work-content">
-          <blockquote class="film-quote" style="margin-top:0;">"但是还有诗人——<br>当代科幻电影的诗意化"</blockquote>
-          <p class="work-desc">从人物分析、意象系统与哲学内核三个维度，解读《宇宙探索编辑部》对传统科幻逻辑的颠覆。它不讲科技，不讲真理，只讲在宏大叙事下如何做一个人。</p>
-          <p class="work-thesis">核心论点 &ensp;/&ensp; 科学无法抵达的地方，诗人可以到。</p>
-          <div class="media-ph" style="height:180px;margin-top:24px;"><span>影评截图 / 入围证书</span></div>
-        </div>
-      </div>
-    </article>
+.hero-name {
+  margin-bottom: 28px;
+}
+.hero-name-cn {
+  display: block;
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(64px, 9vw, 110px);
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+.hero-name-en {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 3vw, 42px);
+  font-weight: 300; font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  margin-top: 8px;
+}
 
-    <div class="works-category reveal" style="margin-top:80px;">
-      <div class="cat-header">
-        <div class="cat-rule"></div>
-        <span class="cat-name">Visual Design</span>
-        <span class="cat-name-cn">海报设计</span>
-      </div>
-    </div>
+.hero-roles {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 18px;
+}
+.hero-role {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 13px; font-weight: 300;
+  color: var(--silver); letter-spacing: 0.08em;
+}
+.hero-role-dot { color: var(--gold); font-size: 18px; line-height: 1; }
 
-    <div class="poster-section reveal">
-      <p class="poster-intro">涵盖电影活动主视觉、宣传物料设计与个人创作实践。&ensp;<em>Adobe Photoshop / Illustrator</em></p>
-      <div class="poster-cols">
-        <div class="poster-col">
-          <div class="poster-col-label">电影下乡系列</div>
-          <div class="poster-grid">
-            <div class="poster-cell"><span>01</span></div>
-            <div class="poster-cell"><span>02</span></div>
-            <div class="poster-cell"><span>03</span></div>
-            <div class="poster-cell"><span>04</span></div>
-          </div>
-        </div>
-        <div class="poster-col">
-          <div class="poster-col-label">个人创作</div>
-          <div class="poster-grid">
-            <div class="poster-cell"><span>01</span></div>
-            <div class="poster-cell"><span>02</span></div>
-            <div class="poster-cell"><span>03</span></div>
-            <div class="poster-cell"><span>04</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+.hero-edu {
+  font-family: 'Cormorant SC', serif;
+  font-size: 10px; letter-spacing: 0.2em;
+  color: var(--muted); margin-bottom: 48px;
+}
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <div class="section-num">03</div>
-      <div class="section-title-block">
-        <h2 class="section-title-cn">实习经历</h2>
-        <span class="section-title-en">Experience</span>
-      </div>
-      <div class="section-line"></div>
-    </div>
-    <div class="exp-list">
-      <div class="exp-item reveal">
-        <div class="exp-left">
-          <div class="exp-period">2024.08 — 2025.01</div>
-          <div class="exp-location">北京</div>
-          <div class="exp-accent-bar"></div>
-        </div>
-        <div class="exp-right">
-          <div class="exp-company">快手科技</div>
-          <div class="exp-role">市场实习生 · Marketing Intern</div>
-          <ul class="exp-bullets">
-            <li>完整参与两部纪录片全案：《像岩石一样生活》《西北刀客》</li>
-            <li>首次将可灵AI引入纪录片制作流程，探索AI工具在纪实影像中的应用</li>
-            <li>负责策划、拍摄、传播、KOL建联与数据分析全链路</li>
-          </ul>
-        </div>
-      </div>
-      <div class="exp-item reveal">
-        <div class="exp-left">
-          <div class="exp-period">2025.04 — 2025.07</div>
-          <div class="exp-location">北京</div>
-          <div class="exp-accent-bar"></div>
-        </div>
-        <div class="exp-right">
-          <div class="exp-company">哇唧唧哇有限公司</div>
-          <div class="exp-role">制片实习生 · Production Intern</div>
-          <ul class="exp-bullets">
-            <li>参与《毛雪汪》等多档综艺节目全流程筹备，协助主场景创意策划</li>
-            <li>配合摄影组多机位现场执行，协同艺统组完成艺人服务</li>
-            <li>协调可口可乐、卫龙两家品牌方植入落地，推动商业转化顺利实现</li>
-          </ul>
-        </div>
-      </div>
-      <div class="exp-item reveal">
-        <div class="exp-left">
-          <div class="exp-period">2024.12 — 2025.01</div>
-          <div class="exp-location">北京</div>
-          <div class="exp-accent-bar"></div>
-        </div>
-        <div class="exp-right">
-          <div class="exp-company">《人物》杂志</div>
-          <div class="exp-role">内容运营实习生 · Content Operations Intern</div>
-          <ul class="exp-bullets">
-            <li>统筹管理微博、小红书、公众号等多平台账号，独立完成选题策划与原创内容撰写，输出文案 100+ 篇</li>
-            <li>累计阅读量突破 1,000万+，单篇最高 100万+，粉丝量增长 5万+</li>
-            <li>定期输出多维度运营数据分析报告，为账号运营方向提供量化决策依据</li>
-          </ul>
-        </div>
-      </div>
-      <div class="exp-item reveal">
-        <div class="exp-left">
-          <div class="exp-period">2024.08 — 2024.12</div>
-          <div class="exp-location">北京</div>
-          <div class="exp-accent-bar"></div>
-        </div>
-        <div class="exp-right">
-          <div class="exp-company">1905电影网</div>
-          <div class="exp-role">内容实习生 · Content Intern</div>
-          <ul class="exp-bullets">
-            <li>独立撰写 100+ 篇专业影评，整理维护 100+ 部影片结构化资料库</li>
-            <li>参与电影日历出版项目，负责物料统筹并推动正式出版</li>
-            <li>成品进入北京市门头沟政府采购清单</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+.hero-actions { display: flex; gap: 16px; }
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <div class="section-num">04</div>
-      <div class="section-title-block">
-        <h2 class="section-title-cn">技能</h2>
-        <span class="section-title-en">Skills</span>
-      </div>
-      <div class="section-line"></div>
-    </div>
-    <div class="skills-grid reveal">
-      <div class="skill-row">
-        <div class="skill-cat"><span class="skill-icon">🎬</span><span>影视制作</span></div>
-        <div class="skill-items">
-          <span class="skill-tag">Premiere Pro</span>
-          <span class="skill-tag">Photoshop</span>
-          <span class="skill-tag">Illustrator</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-cat"><span class="skill-icon">🤖</span><span>AI 工具</span></div>
-        <div class="skill-items">
-          <span class="skill-tag">Claude</span>
-          <span class="skill-tag">ChatGPT</span>
-          <span class="skill-tag">Midjourney</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-cat"><span class="skill-icon">📊</span><span>数据分析</span></div>
-        <div class="skill-items">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Excel</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-cat"><span class="skill-icon">📱</span><span>内容运营</span></div>
-        <div class="skill-items">
-          <span class="skill-tag">微博</span>
-          <span class="skill-tag">抖音</span>
-          <span class="skill-tag">快手</span>
-          <span class="skill-tag">公众号</span>
-          <span class="skill-tag">小红书</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-cat"><span class="skill-icon">📝</span><span>内容写作</span></div>
-        <div class="skill-items">
-          <span class="skill-tag">策划案</span>
-          <span class="skill-tag">特稿</span>
-          <span class="skill-tag">影评</span>
-          <span class="skill-tag">运营报告</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-cat"><span class="skill-icon">🖥️</span><span>办公协作</span></div>
-        <div class="skill-items">
-          <span class="skill-tag">Office全家桶</span>
-          <span class="skill-tag">协同文档</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 10px; letter-spacing: 0.25em;
+  color: var(--black);
+  background: linear-gradient(135deg, var(--gold2), var(--gold));
+  padding: 14px 30px;
+  text-decoration: none;
+  transition: opacity 0.25s, transform 0.25s;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <div class="section-num">05</div>
-      <div class="section-title-block">
-        <h2 class="section-title-cn">联系我</h2>
-        <span class="section-title-en">Let's Connect</span>
-      </div>
-      <div class="section-line"></div>
-    </div>
-    <div class="contact-layout reveal">
-      <div class="contact-headline-block">
-        <p class="contact-headline">Let's make<br><em>something</em><br>great together.</p>
-      </div>
-      <div class="contact-info-block">
-        <div class="contact-row">
-          <div class="contact-row-label">Email</div>
-          <div class="contact-row-value">377172639@qq.com</div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-row-label">WeChat</div>
-          <div class="contact-row-value">bornfree0714</div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-row-label">Phone</div>
-          <div class="contact-row-value">180-9638-7829</div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bar">
-      <p>© 2026 &ensp;颜诗雨 · Yan Shiyu</p>
-      <p>北京师范大学 · 戏剧影视文学 · Class of 2026</p>
-    </div>
-  </div>
-</section>
+.btn-ghost {
+  display: inline-flex; align-items: center;
+  font-family: 'Cormorant SC', serif;
+  font-size: 10px; letter-spacing: 0.25em;
+  color: var(--gold);
+  border: 1px solid var(--border2);
+  padding: 13px 28px;
+  text-decoration: none;
+  transition: border-color 0.25s, color 0.25s;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold2); }
 
-<script src="script.js"></script>
-</body>
-</html>
+/* Hero right: photo */
+.hero-right { position: relative; }
+
+.hero-photo-frame {
+  position: relative;
+  width: 100%; aspect-ratio: 3/4;
+}
+.hero-photo-inner {
+  width: 100%; height: 100%;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-photo-inner img { width: 100%; height: 100%; object-fit: cover; }
+.photo-placeholder {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 10px; letter-spacing: 0.2em; color: var(--muted);
+}
+.photo-placeholder-sub { font-size: 9px; opacity: 0.6; }
+
+/* Corner accents */
+.hero-photo-corner {
+  position: absolute; width: 16px; height: 16px;
+}
+.hero-photo-corner.tl { top: -6px; left: -6px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+.hero-photo-corner.tr { top: -6px; right: -6px; border-top: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+.hero-photo-corner.bl { bottom: -6px; left: -6px; border-bottom: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+.hero-photo-corner.br { bottom: -6px; right: -6px; border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+
+.hero-contact-side {
+  margin-top: 20px; display: flex; flex-direction: column; gap: 8px;
+}
+.hero-contact-item {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 10px; letter-spacing: 0.12em; color: var(--muted);
+}
+.contact-icon-small { color: var(--gold); font-size: 13px; }
+
+/* Scroll hint */
+.hero-scroll-hint {
+  position: absolute; bottom: 40px; left: 60px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.scroll-line {
+  width: 1px; height: 48px;
+  background: linear-gradient(180deg, var(--gold), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.1); }
+}
+.hero-scroll-hint span {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.3em; color: var(--muted);
+  writing-mode: vertical-rl;
+}
+
+/* ── SECTION SHARED ── */
+.section-wrap {
+  max-width: 1200px; margin: 0 auto;
+  padding: 110px 60px;
+}
+
+.section-header {
+  display: flex; align-items: center; gap: 24px;
+  margin-bottom: 72px;
+}
+.section-num {
+  font-family: 'Cormorant SC', serif;
+  font-size: 11px; letter-spacing: 0.3em; color: var(--gold);
+}
+.section-title-block {
+  display: flex; flex-direction: column; gap: 2px;
+}
+.section-title-cn {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 22px; font-weight: 400;
+  color: var(--white); letter-spacing: 0.1em;
+}
+.section-title-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px; font-style: italic;
+  color: var(--gold); letter-spacing: 0.12em;
+}
+.section-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, var(--border), transparent);
+}
+
+/* Section backgrounds */
+#about     { background: var(--deep); }
+#works     { background: var(--black); }
+#experience{ background: var(--deep); }
+#skills    { background: var(--surface); }
+#contact   { background: var(--black); }
+
+/* ── ABOUT ── */
+.about-layout {
+  display: grid; grid-template-columns: 280px 1fr;
+  gap: 80px; align-items: start;
+}
+
+.about-pull {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-style: italic; font-weight: 300;
+  color: var(--white); line-height: 1.65;
+  border-left: 1px solid var(--gold);
+  padding-left: 24px;
+  margin-bottom: 40px;
+}
+
+.about-badge {
+  display: flex; align-items: center; gap: 16px;
+  padding: 20px 24px;
+  border: 1px solid var(--border2);
+  background: var(--panel);
+}
+.about-badge-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px; font-weight: 300; color: var(--gold);
+  line-height: 1;
+}
+.about-badge-label {
+  font-family: 'Cormorant SC', serif;
+  font-size: 10px; letter-spacing: 0.18em;
+  color: var(--silver); line-height: 1.8;
+}
+
+.about-body {
+  font-size: 15px; color: var(--silver);
+  line-height: 2; margin-bottom: 20px;
+  font-weight: 300;
+}
+.about-body em { color: var(--cream); font-style: normal; }
+
+.about-tags {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px;
+}
+.about-tag {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.2em;
+  color: var(--gold); border: 1px solid var(--border2);
+  padding: 6px 14px; background: var(--gold-dim);
+}
+
+/* ── WORKS ── */
+.works-category { margin-bottom: 48px; }
+.cat-header {
+  display: flex; align-items: center; gap: 18px;
+}
+.cat-rule {
+  width: 32px; height: 1px; background: var(--gold); flex-shrink: 0;
+}
+.cat-name {
+  font-family: 'Cormorant SC', serif;
+  font-size: 10px; letter-spacing: 0.3em; color: var(--gold);
+}
+.cat-name-cn {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 11px; color: var(--muted); letter-spacing: 0.1em;
+}
+
+.work-item {
+  display: grid; grid-template-columns: 60px 1fr;
+  gap: 48px; padding: 60px 0;
+  border-bottom: 1px solid var(--border);
+}
+.work-item:last-of-type { border-bottom: none; }
+
+.work-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px; font-weight: 300;
+  color: var(--border2); line-height: 0.9;
+  padding-top: 4px;
+}
+
+.work-body {
+  display: grid; grid-template-columns: 220px 1fr;
+  gap: 48px;
+}
+
+.work-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 18px; font-weight: 400;
+  color: var(--white); margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+.work-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px; font-style: italic;
+  color: var(--muted); margin-bottom: 16px;
+}
+.work-info-row {
+  display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px;
+}
+.work-org {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.25em; color: var(--gold);
+}
+.work-year {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.15em; color: var(--muted);
+}
+
+.award-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.12em;
+  color: var(--cream); border: 1px solid var(--border2);
+  padding: 5px 12px; margin-top: 14px;
+  background: var(--gold-dim);
+}
+.award-dot {
+  width: 5px; height: 5px;
+  background: var(--gold); border-radius: 50%; flex-shrink: 0;
+}
+.award-sub {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.12em;
+  color: var(--muted); margin-top: 6px;
+}
+
+.work-desc {
+  font-size: 14px; color: var(--silver);
+  line-height: 2; margin-bottom: 16px; font-weight: 300;
+}
+.work-desc em { color: var(--cream); font-style: normal; }
+
+.work-highlight {
+  border-left: 1px solid var(--gold);
+  padding: 12px 18px; margin-bottom: 14px;
+  background: var(--gold-dim);
+}
+.work-highlight-title {
+  font-size: 13px; font-weight: 500;
+  color: var(--cream); margin-bottom: 4px;
+}
+.work-highlight-desc {
+  font-size: 13px; color: var(--silver); line-height: 1.8;
+}
+
+.work-chips-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.work-chip {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.15em;
+  color: var(--silver); border: 1px solid var(--border2);
+  padding: 4px 12px; transition: all 0.2s;
+}
+.work-chip:hover { color: var(--gold); border-color: var(--gold); background: var(--gold-dim); }
+
+.work-media-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2px; margin-top: 24px;
+}
+
+.media-ph {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  height: 160px;
+  display: flex; align-items: center; justify-content: center;
+}
+.media-ph span {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+.work-stats-row { display: flex; gap: 40px; margin-top: 20px; }
+.work-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 300; color: var(--white);
+  line-height: 1;
+}
+.work-stat-num em { font-family: 'Cormorant SC', serif; font-size: 13px; color: var(--gold); font-style: normal; }
+.work-stat-label {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.14em; color: var(--muted); margin-top: 4px;
+}
+
+.film-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-style: italic; font-weight: 300;
+  color: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0; margin: 16px 0 20px;
+  line-height: 1.6;
+}
+
+.film-details summary {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.25em; color: var(--gold);
+  cursor: pointer; list-style: none; margin-top: 12px;
+  display: flex; gap: 8px;
+}
+.film-details summary::-webkit-details-marker { display: none; }
+.film-details-body {
+  margin-top: 14px; padding: 16px 20px;
+  border-left: 1px solid var(--border2);
+  font-size: 13px; color: var(--silver);
+  line-height: 2; font-weight: 300;
+}
+
+.film-stills {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 2px; margin-top: 28px;
+}
+.film-still-ph { height: 100px; }
+
+.work-thesis {
+  font-family: 'Cormorant SC', serif;
+  font-size: 10px; letter-spacing: 0.15em;
+  color: var(--gold); margin-top: 14px;
+}
+
+/* Poster */
+.poster-section { margin-top: 0; }
+.poster-intro {
+  font-size: 13px; color: var(--muted);
+  margin-bottom: 36px; line-height: 1.8;
+}
+.poster-intro em { font-family: 'Cormorant SC', serif; font-size: 10px; letter-spacing: 0.1em; font-style: normal; }
+.poster-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.poster-col-label {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.2em; color: var(--muted);
+  margin-bottom: 12px;
+}
+.poster-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
+.poster-cell {
+  aspect-ratio: 2/3; background: var(--panel);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.25s;
+}
+.poster-cell:hover { border-color: var(--gold); }
+.poster-cell span {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.15em; color: var(--muted);
+}
+
+/* ── EXPERIENCE ── */
+.exp-list { display: flex; flex-direction: column; }
+
+.exp-item {
+  display: grid; grid-template-columns: 180px 1fr;
+  gap: 60px; padding: 52px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.exp-item:last-child { border-bottom: none; }
+
+.exp-left { padding-top: 4px; }
+.exp-period {
+  font-family: 'Cormorant SC', serif;
+  font-size: 11px; letter-spacing: 0.12em;
+  color: var(--silver); margin-bottom: 6px;
+}
+.exp-location {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.2em;
+  color: var(--muted); margin-bottom: 20px;
+}
+.exp-accent-bar {
+  width: 24px; height: 1px; background: var(--gold);
+}
+
+.exp-company {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 19px; font-weight: 400;
+  color: var(--white); margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+.exp-role {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.2em;
+  color: var(--gold); margin-bottom: 22px;
+  padding-bottom: 22px; border-bottom: 1px solid var(--border);
+}
+.exp-bullets { list-style: none; }
+.exp-bullets li {
+  font-size: 13px; color: var(--silver);
+  line-height: 1.95; padding-left: 16px;
+  position: relative; margin-bottom: 8px;
+  font-weight: 300;
+}
+.exp-bullets li::before {
+  content: '—';
+  position: absolute; left: 0;
+  color: var(--gold); font-size: 10px; top: 6px;
+}
+
+/* ── SKILLS ── */
+.skills-grid { display: flex; flex-direction: column; }
+
+.skill-row {
+  display: grid; grid-template-columns: 180px 1fr;
+  gap: 48px; align-items: center;
+  padding: 24px 0; border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.skill-row:first-child { border-top: 1px solid var(--border); }
+.skill-row:hover { background: var(--panel); margin: 0 -20px; padding-left: 20px; padding-right: 20px; }
+
+.skill-cat {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 13px; font-weight: 400;
+  color: var(--cream); letter-spacing: 0.04em;
+}
+.skill-icon { font-size: 15px; }
+
+.skill-items { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tag {
+  font-family: 'Cormorant SC', serif;
+  font-size: 10px; letter-spacing: 0.14em;
+  color: var(--silver); border: 1px solid var(--border2);
+  padding: 5px 14px; transition: all 0.2s;
+}
+.skill-tag:hover { color: var(--gold); border-color: var(--gold); background: var(--gold-dim); }
+
+/* ── CONTACT ── */
+#contact .section-header .section-title-cn { color: var(--white); }
+
+.contact-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center; margin-bottom: 80px;
+}
+
+.contact-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 300; font-style: italic;
+  color: var(--white); line-height: 1.25;
+}
+.contact-headline em {
+  color: var(--gold); font-style: normal;
+}
+
+.contact-info-block { display: flex; flex-direction: column; }
+.contact-row {
+  display: flex; align-items: baseline; gap: 24px;
+  padding: 22px 0; border-bottom: 1px solid var(--border);
+}
+.contact-row:last-child { border-bottom: none; }
+.contact-row-label {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.25em;
+  color: var(--gold); width: 70px; flex-shrink: 0;
+}
+.contact-row-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; color: var(--cream);
+  letter-spacing: 0.03em;
+}
+
+.footer-bar {
+  border-top: 1px solid var(--border);
+  padding-top: 28px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-bar p {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9px; letter-spacing: 0.2em; color: var(--muted);
+}
+
+/* ── ANIMATIONS ── */
+.reveal {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay { transition-delay: 0.2s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  nav { padding: 18px 32px; }
+  nav.scrolled { padding: 14px 32px; }
+  .hero-inner { grid-template-columns: 1fr 300px; gap: 48px; padding: 80px 0 40px; }
+  .section-wrap { padding: 80px 32px; }
+}
+
+@media (max-width: 860px) {
+  body { cursor: auto; }
+  .cursor, .cursor-follower { display: none; }
+  nav { padding: 16px 20px; }
+  nav.scrolled { padding: 12px 20px; }
+  .nav-links { display: none; }
+  #hero { padding: 0 20px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; padding-top: 100px; }
+  .hero-right { display: none; }
+  .hero-name-cn { font-size: clamp(52px, 14vw, 80px); }
+  .hero-bg-text { font-size: clamp(80px, 22vw, 140px); }
+  .hero-scroll-hint { left: 20px; }
+  .section-wrap { padding: 72px 20px; }
+  .about-layout { grid-template-columns: 1fr; gap: 40px; }
+  .work-item { grid-template-columns: 44px 1fr; gap: 24px; }
+  .work-body { grid-template-columns: 1fr; }
+  .exp-item { grid-template-columns: 1fr; gap: 16px; }
+  .exp-left { display: flex; align-items: center; gap: 20px; }
+  .exp-accent-bar { display: none; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .poster-cols { grid-template-columns: 1fr; }
+  .film-stills { grid-template-columns: 1fr 1fr; }
+  .poster-grid { grid-template-columns: repeat(2,1fr); }
+  .work-stats-row { flex-wrap: wrap; gap: 24px; }
+  .skills-grid .skill-row { grid-template-columns: 140px 1fr; gap: 20px; }
+  .skills-grid .skill-row:hover { margin: 0; padding-left: 0; padding-right: 0; }
+}
