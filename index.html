@@ -6,88 +6,129 @@
   <title>颜诗雨 · Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+SC:wght@300;400;600;700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Cormorant+SC:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursor-follower"></div>
+
 <!-- NAV -->
 <nav id="main-nav">
-  <a class="nav-logo" href="#hero">颜诗雨 <span>/ YAN SHIYU</span></a>
+  <a class="nav-logo" href="#hero">
+    <span class="nav-logo-cn">颜诗雨</span>
+    <span class="nav-logo-divider"></span>
+    <span class="nav-logo-en">YAN SHIYU</span>
+  </a>
   <ul class="nav-links">
-    <li><a href="#about">关于</a></li>
-    <li><a href="#works">作品</a></li>
-    <li><a href="#experience">经历</a></li>
-    <li><a href="#skills">技能</a></li>
-    <li><a href="#contact">联系</a></li>
+    <li><a href="#about"><span>01</span>关于</a></li>
+    <li><a href="#works"><span>02</span>作品</a></li>
+    <li><a href="#experience"><span>03</span>经历</a></li>
+    <li><a href="#skills"><span>04</span>技能</a></li>
+    <li><a href="#contact"><span>05</span>联系</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <!-- Orange brush stroke -->
-  <svg class="hero-brush" viewBox="0 0 300 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M-30,45 Q50,-15 140,50 Q210,100 270,45 Q250,100 200,130 Q130,165 50,135 Q-15,110 -30,45Z" fill="#e8512a"/>
-    <path d="M0,75 Q80,25 180,80 Q240,110 255,80 Q235,145 175,168 Q95,190 15,148 Q-15,125 0,75Z" fill="#e8512a" opacity="0.45"/>
-  </svg>
-  <!-- Blue accent -->
-  <svg class="hero-brush-2" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,25 Q55,-8 125,28 Q168,50 155,80 Q110,105 40,88 Q-8,70 0,25Z" fill="#3b6fd4"/>
-  </svg>
-  <!-- Teal right -->
-  <svg class="hero-brush-tr" viewBox="0 0 280 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20,35 Q100,-18 230,28 Q295,58 285,115 Q225,165 108,155 Q15,140 8,88 Q0,52 20,35Z" fill="#4a9b8e"/>
-  </svg>
+  <div class="hero-bg-text" aria-hidden="true">PORTFOLIO</div>
 
-  <div class="hero-content fade-up">
-    <div class="hero-eyebrow">Portfolio 2026</div>
-    <h1 class="hero-name">颜诗雨</h1>
-    <p class="hero-name-en">Yan Shiyu</p>
-    <div class="hero-roles">
-      <span class="hero-role-item">内容创作</span>
-      <span class="hero-role-item">影视制片</span>
-      <span class="hero-role-item">媒介运营</span>
+  <div class="hero-inner">
+    <div class="hero-left reveal">
+      <div class="hero-label">
+        <div class="hero-label-line"></div>
+        <span>Portfolio · 2026</span>
+      </div>
+      <h1 class="hero-name">
+        <span class="hero-name-cn">颜诗雨</span>
+        <span class="hero-name-en">Yan Shiyu</span>
+      </h1>
+      <div class="hero-roles">
+        <div class="hero-role">内容创作</div>
+        <div class="hero-role-dot">·</div>
+        <div class="hero-role">影视制片</div>
+        <div class="hero-role-dot">·</div>
+        <div class="hero-role">媒介运营</div>
+      </div>
+      <div class="hero-edu">
+        北京师范大学 &ensp;/&ensp; 戏剧影视文学 &ensp;/&ensp; 软科2025专业排名 No.1
+      </div>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#works">
+          <span>查看作品</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn-ghost" href="#contact">联系我</a>
+      </div>
     </div>
-    <div class="hero-tags">
-      <span class="hero-tag">北京师范大学 985</span>
-      <span class="hero-tag">戏剧影视文学</span>
-      <span class="hero-tag">软科2025专业排名 No.1</span>
-      <span class="hero-tag">26届</span>
-    </div>
-    <div class="hero-btns">
-      <a class="btn-solid" href="#works">查看作品 →</a>
-      <a class="btn-ghost" href="#contact">联系我</a>
+    <div class="hero-right reveal reveal-delay">
+      <div class="hero-photo-frame">
+        <div class="hero-photo-inner">
+          <!-- 替换为：<img src="你的照片.jpg" alt="颜诗雨"> -->
+          <div class="photo-placeholder">
+            <span>在此放置照片</span>
+            <span class="photo-placeholder-sub">建议 3:4 竖版</span>
+          </div>
+        </div>
+        <div class="hero-photo-corner tl"></div>
+        <div class="hero-photo-corner tr"></div>
+        <div class="hero-photo-corner bl"></div>
+        <div class="hero-photo-corner br"></div>
+      </div>
+      <div class="hero-contact-side">
+        <div class="hero-contact-item">
+          <span class="contact-icon-small">✉</span>
+          <span>377172639@qq.com</span>
+        </div>
+        <div class="hero-contact-item">
+          <span class="contact-icon-small">☏</span>
+          <span>180-9638-7829</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="hero-contact-bar">
-    <p>📧 377172639@qq.com</p>
-    <p>💬 WeChat: bornfree0714</p>
-    <p>📱 180-9638-7829</p>
+  <div class="hero-scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
   <div class="section-wrap">
-    <div class="section-header fade-up">
-      <span class="section-num">01 ——</span>
-      <h2 class="section-title-cn">关于我</h2>
-      <span class="section-title-en">About Me</span>
-    </div>
-    <div class="about-grid fade-up">
-      <div>
-        <div class="about-photo-box">
-          <!-- 替换为：<img src="你的照片.jpg" alt="颜诗雨"> -->
-          <div class="photo-hint">在此放置你的照片<br><br>建议 3:4 竖版</div>
-        </div>
-        <p class="photo-caption">YAN SHIYU · BNU 2026</p>
+    <div class="section-header reveal">
+      <div class="section-num">01</div>
+      <div class="section-title-block">
+        <h2 class="section-title-cn">关于我</h2>
+        <span class="section-title-en">About Me</span>
       </div>
-      <div>
-        <p class="about-pull">从0到1的策划，到上线后的数据复盘，我都能独立完成全链路。</p>
-        <p class="about-body">我是<strong>颜诗雨</strong>，北京师范大学戏剧影视文学专业26届毕业生，所学专业软科2025年全国排名第一。</p>
-        <p class="about-body">我的过往经历横跨<strong>商业纪录片制作、剧情短片统筹、社交媒体运营与影视内容创作</strong>。无论是内容策划、现场执行、KOL建联，还是数据复盘与传播方案，我都在真实的商业项目中完整走过全链路。</p>
-        <p class="about-body">2024年起先后在<strong>快手科技、哇唧唧哇、《人物》杂志、1905电影网</strong>实习，覆盖纪录片、综艺、杂志新媒体与电影资讯全赛道。</p>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-layout reveal">
+      <div class="about-pull-col">
+        <blockquote class="about-pull">
+          从0到1的策划，<br>
+          到上线后的数据复盘，<br>
+          我都能独立完成全链路。
+        </blockquote>
+        <div class="about-badge">
+          <div class="about-badge-num">4</div>
+          <div class="about-badge-label">家头部媒体<br>实习经历</div>
+        </div>
+      </div>
+      <div class="about-text-col">
+        <p class="about-body">我是<em>颜诗雨</em>，北京师范大学戏剧影视文学专业26届毕业生，所学专业软科2025年全国排名第一。</p>
+        <p class="about-body">我的过往经历横跨<em>商业纪录片制作、剧情短片统筹、社交媒体运营与影视内容创作</em>。无论是内容策划、现场执行、KOL建联，还是数据复盘与传播方案，我都在真实的商业项目中完整走过全链路。</p>
+        <p class="about-body">2024年起先后在<em>快手科技、哇唧唧哇、《人物》杂志、1905电影网</em>实习，覆盖纪录片、综艺、杂志新媒体与电影资讯全赛道。</p>
+        <div class="about-tags">
+          <span class="about-tag">北京师范大学 985</span>
+          <span class="about-tag">26届</span>
+          <span class="about-tag">内容全链路</span>
+          <span class="about-tag">AI协作创作</span>
+        </div>
       </div>
     </div>
   </div>
@@ -96,143 +137,175 @@
 <!-- WORKS -->
 <section id="works">
   <div class="section-wrap">
-    <div class="section-header fade-up">
-      <span class="section-num">02 ——</span>
-      <h2 class="section-title-cn">作品选集</h2>
-      <span class="section-title-en">Selected Works</span>
+    <div class="section-header reveal">
+      <div class="section-num">02</div>
+      <div class="section-title-block">
+        <h2 class="section-title-cn">作品选集</h2>
+        <span class="section-title-en">Selected Works</span>
+      </div>
+      <div class="section-line"></div>
     </div>
 
-    <div class="fade-up"><div class="cat-label">Commercial Content Creation · 商业内容创作</div></div>
+    <div class="works-category reveal">
+      <div class="cat-header">
+        <div class="cat-rule"></div>
+        <span class="cat-name">Commercial Content Creation</span>
+        <span class="cat-name-cn">商业内容创作</span>
+      </div>
+    </div>
 
-    <!-- 01 快手 -->
-    <div class="work-card fade-up">
-      <div class="work-index">01</div>
-      <div class="work-inner">
-        <div>
-          <div class="work-title-cn">快手纪录片全案</div>
-          <div class="work-subtitle">Documentary Full Campaign</div>
-          <div class="work-org">快手科技</div>
-          <div class="work-year">2024–2025</div>
+    <article class="work-item reveal">
+      <div class="work-num">01</div>
+      <div class="work-body">
+        <div class="work-meta">
+          <h3 class="work-title">快手纪录片全案</h3>
+          <p class="work-subtitle">Documentary Full Campaign</p>
+          <div class="work-info-row">
+            <span class="work-org">快手科技</span>
+            <span class="work-year">2024 — 2025</span>
+          </div>
         </div>
-        <div>
+        <div class="work-content">
           <p class="work-desc">两部纪录片，从选题策划到传播复盘，全案参与执行。</p>
-          <div class="highlight-box">
-            <strong>《像岩石一样生活》× 可灵AI 联合出品</strong><br>
-            首部融合AI影像生成技术的快手纪录片项目，探索AI工具在纪实影像创作中的可能性边界。
+          <div class="work-highlight">
+            <div class="work-highlight-title">《像岩石一样生活》× 可灵AI 联合出品</div>
+            <div class="work-highlight-desc">首部融合AI影像生成技术的快手纪录片项目，探索AI工具在纪实影像创作中的可能性边界。</div>
           </div>
-          <div class="highlight-box">
-            <strong>《西北刀客》× 京东3C数码 品牌植入</strong><br>
-            面向京东3C数码用户圈层的内容营销案例，将品牌植入自然融入纪实叙事。
+          <div class="work-highlight">
+            <div class="work-highlight-title">《西北刀客》× 京东3C数码 品牌植入</div>
+            <div class="work-highlight-desc">面向京东3C数码用户圈层的内容营销案例，将品牌植入自然融入纪实叙事。</div>
           </div>
-          <div class="chips-label">工作内容</div>
-          <div class="chips">
-            <span class="chip">选题策划</span><span class="chip">实地拍摄</span>
-            <span class="chip">传播方案</span><span class="chip">文案撰写</span>
-            <span class="chip">KOL筛选建联</span><span class="chip">公众号特稿</span>
-            <span class="chip">数据复盘</span><span class="chip">AI协作</span>
+          <div class="work-chips-row">
+            <span class="work-chip">选题策划</span><span class="work-chip">实地拍摄</span>
+            <span class="work-chip">传播方案</span><span class="work-chip">KOL建联</span>
+            <span class="work-chip">数据复盘</span><span class="work-chip">AI协作</span>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:28px;background:var(--border);">
-            <div class="img-ph" style="height:170px;"><span>纪录片现场 / 海报</span></div>
-            <div class="img-ph" style="height:170px;"><span>西北刀客 宣传图</span></div>
+          <div class="work-media-grid">
+            <div class="media-ph"><span>纪录片现场 / 海报</span></div>
+            <div class="media-ph"><span>西北刀客 宣传图</span></div>
           </div>
         </div>
       </div>
-    </div>
+    </article>
 
-    <!-- 02 人物 -->
-    <div class="work-card fade-up">
-      <div class="work-index">02</div>
-      <div class="work-inner">
-        <div>
-          <div class="work-title-cn">人物官博运营</div>
-          <div class="work-subtitle">#Yellow Portrait#</div>
-          <div class="work-org">《人物》杂志</div>
-          <div class="work-year">2024–2025</div>
+    <article class="work-item reveal">
+      <div class="work-num">02</div>
+      <div class="work-body">
+        <div class="work-meta">
+          <h3 class="work-title">人物官博运营</h3>
+          <p class="work-subtitle">#Yellow Portrait#</p>
+          <div class="work-info-row">
+            <span class="work-org">《人物》杂志</span>
+            <span class="work-year">2024 — 2025</span>
+          </div>
         </div>
-        <div>
-          <p class="work-desc">《人物》杂志旗下微博栏目 <strong>#Yellow Portrait#</strong>，以音乐、电影、书籍文化为核心选题，深度解读时代坐标与精神图谱。</p>
+        <div class="work-content">
+          <p class="work-desc">《人物》杂志旗下微博栏目 <em>#Yellow Portrait#</em>，以音乐、电影、书籍文化为核心选题，深度解读时代坐标与精神图谱。</p>
           <p class="work-desc">负责管理5个平台官方账号，独立撰写原创博文，运用精准内容营销策略驱动粉丝互动。</p>
-          <div class="stats-row">
-            <div><div class="inline-stat-num">1,000万+</div><div class="inline-stat-label">博文累计阅读量</div></div>
-            <div><div class="inline-stat-num">100万+</div><div class="inline-stat-label">单条最高阅读量</div></div>
-            <div><div class="inline-stat-num">30+</div><div class="inline-stat-label">运营复盘报告</div></div>
-          </div>
-          <div class="img-ph" style="height:190px;margin-top:28px;"><span>运营截图 / 博文数据</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Film section -->
-    <div class="fade-up" style="margin-top:72px;"><div class="cat-label">Film & Criticism · 影视创作</div></div>
-
-    <!-- 03 靡糜 -->
-    <div class="work-card film-card fade-up">
-      <div class="work-index">03</div>
-      <div>
-        <div class="film-inner">
-          <div>
-            <div class="work-title-cn">短片《靡糜》</div>
-            <div class="work-subtitle">Fade Away · 2024</div>
-            <div class="work-org">制片主任</div>
-            <div class="award-badge"><span class="badge-dot"></span>北京国际电影节 入围</div>
-            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;color:var(--muted);margin-top:6px;line-height:1.8;">第33届大学生电影节<br>国际大学生原创影片单元</div>
-            <div style="margin-top:28px;">
-              <div class="chips-label">统筹工作</div>
-              <p style="font-size:13px;color:var(--ink2);line-height:1.85;">统筹协调 <strong>6个部门、20+人剧组</strong>，完整执行从前期堪景到成片的全拍摄周期（4月—9月）。</p>
+          <div class="work-stats-row">
+            <div class="work-stat">
+              <div class="work-stat-num">1,000<em>万+</em></div>
+              <div class="work-stat-label">博文累计阅读量</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">100<em>万+</em></div>
+              <div class="work-stat-label">单条最高阅读量</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">5<em>万+</em></div>
+              <div class="work-stat-label">运营期间粉丝增长</div>
             </div>
           </div>
-          <div>
-            <p class="work-desc">复读高考结束的女孩<strong>古果</strong>，在家庭变故后与精神不稳定的母亲搬进破旧筒子楼。她结识了经营地下放映厅的边缘少年<strong>留白</strong>，又因好友绮丽的"长大"陷入身份认同的迷茫。</p>
-            <div class="quote-pull">"一个关于创伤、模仿与自我救赎失败的故事。"</div>
-            <p class="work-desc">古果模仿绮丽的装扮与行为，试图借助他者重构自我——却在最亲密的瞬间彻底崩溃。最终，她在画作与镜子的虚实交错中觉醒，抱起残缺的人体模特离开。</p>
-            <details>
-              <summary style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;color:var(--orange);cursor:pointer;text-transform:uppercase;margin-top:14px;">创作阐述 ↓</summary>
-              <div style="margin-top:12px;padding:16px 20px;background:var(--bg);border-left:3px solid var(--border2);">
-                <p style="font-size:13px;color:var(--ink2);line-height:2;">本片以"创伤叙事"为核心，探讨当代青年在结构性压迫下的身份认同困境。古果的"成长仪式"始终无法完成——大学、爱情、艺术，所有出口都走向幻灭。环境的异化（破败的筒子楼）与母亲的失控，共同构成了压迫人物心理的双重力场。影片不提供救赎，只记录一次"卸下伪装"的瞬间。</p>
-              </div>
-            </details>
+          <div class="media-ph" style="height:180px;margin-top:24px;"><span>运营截图 / 博文数据</span></div>
+        </div>
+      </div>
+    </article>
+
+    <div class="works-category reveal" style="margin-top:80px;">
+      <div class="cat-header">
+        <div class="cat-rule"></div>
+        <span class="cat-name">Film & Criticism</span>
+        <span class="cat-name-cn">影视创作</span>
+      </div>
+    </div>
+
+    <article class="work-item reveal">
+      <div class="work-num">03</div>
+      <div class="work-body">
+        <div class="work-meta">
+          <h3 class="work-title">短片《靡糜》</h3>
+          <p class="work-subtitle">Fade Away · 2024 · 制片主任</p>
+          <div class="work-info-row">
+            <span class="work-org">北京国际电影节</span>
+            <span class="work-year">2024</span>
           </div>
-          <!-- stills -->
+          <div class="award-tag">
+            <div class="award-dot"></div>
+            <span>第33届大学生电影节 入围</span>
+          </div>
+          <div class="award-sub">国际大学生原创影片单元</div>
+          <div class="work-chips-row" style="margin-top:20px;">
+            <span class="work-chip">统筹6个部门</span>
+            <span class="work-chip">20+人剧组</span>
+          </div>
+        </div>
+        <div class="work-content">
+          <p class="work-desc">复读高考结束的女孩<em>古果</em>，在家庭变故后与精神不稳定的母亲搬进破旧筒子楼。她结识了经营地下放映厅的边缘少年<em>留白</em>，又因好友绮丽的"长大"陷入身份认同的迷茫。</p>
+          <blockquote class="film-quote">"一个关于创伤、模仿<br>与自我救赎失败的故事。"</blockquote>
+          <p class="work-desc">古果模仿绮丽的装扮与行为，试图借助他者重构自我——却在最亲密的瞬间彻底崩溃。最终，她在画作与镜子的虚实交错中觉醒，抱起残缺的人体模特离开。</p>
+          <details class="film-details">
+            <summary>创作阐述 <span>↓</span></summary>
+            <div class="film-details-body">
+              <p>本片以"创伤叙事"为核心，探讨当代青年在结构性压迫下的身份认同困境。古果的"成长仪式"始终无法完成——大学、爱情、艺术，所有出口都走向幻灭。影片不提供救赎，只记录一次"卸下伪装"的瞬间。</p>
+            </div>
+          </details>
           <div class="film-stills">
-            <div class="film-still"><span>拍摄现场</span></div>
-            <div class="film-still"><span>电影截帧</span></div>
-            <div class="film-still"><span>海报 / 证书</span></div>
+            <div class="media-ph film-still-ph"><span>拍摄现场</span></div>
+            <div class="media-ph film-still-ph"><span>电影截帧</span></div>
+            <div class="media-ph film-still-ph"><span>海报 / 证书</span></div>
           </div>
         </div>
       </div>
-    </div>
+    </article>
 
-    <!-- 04 影评 -->
-    <div class="work-card fade-up">
-      <div class="work-index">04</div>
-      <div class="work-inner">
-        <div>
-          <div class="work-title-cn">《宇宙探索编辑部》影评</div>
-          <div class="work-subtitle">Film Criticism</div>
-          <div class="work-org">北京国际电影节</div>
-          <div class="work-year">2023</div>
-          <div class="award-badge"><span class="badge-dot"></span>第31届大学生电影节 入围</div>
-          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;color:var(--muted);margin-top:6px;">影评推选单元</div>
+    <article class="work-item reveal">
+      <div class="work-num">04</div>
+      <div class="work-body">
+        <div class="work-meta">
+          <h3 class="work-title">《宇宙探索编辑部》影评</h3>
+          <p class="work-subtitle">Film Criticism</p>
+          <div class="work-info-row">
+            <span class="work-org">北京国际电影节</span>
+            <span class="work-year">2023</span>
+          </div>
+          <div class="award-tag">
+            <div class="award-dot"></div>
+            <span>第31届大学生电影节 入围</span>
+          </div>
+          <div class="award-sub">影评推选单元</div>
         </div>
-        <div>
-          <div class="quote-pull">"但是还有诗人——<br>当代科幻电影的诗意化"</div>
+        <div class="work-content">
+          <blockquote class="film-quote" style="margin-top:0;">"但是还有诗人——<br>当代科幻电影的诗意化"</blockquote>
           <p class="work-desc">从人物分析、意象系统与哲学内核三个维度，解读《宇宙探索编辑部》对传统科幻逻辑的颠覆。它不讲科技，不讲真理，只讲在宏大叙事下如何做一个人。</p>
-          <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--orange);">核心论点：科学无法抵达的地方，诗人可以到。</p>
-          <div class="img-ph" style="height:180px;margin-top:24px;"><span>影评截图 / 入围证书</span></div>
+          <p class="work-thesis">核心论点 &ensp;/&ensp; 科学无法抵达的地方，诗人可以到。</p>
+          <div class="media-ph" style="height:180px;margin-top:24px;"><span>影评截图 / 入围证书</span></div>
         </div>
+      </div>
+    </article>
+
+    <div class="works-category reveal" style="margin-top:80px;">
+      <div class="cat-header">
+        <div class="cat-rule"></div>
+        <span class="cat-name">Visual Design</span>
+        <span class="cat-name-cn">海报设计</span>
       </div>
     </div>
 
-    <!-- Posters -->
-    <div class="poster-section fade-up">
-      <div class="cat-label">Visual Design · 海报设计</div>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:36px;">
-        涵盖电影活动主视觉、宣传物料设计与个人创作实践。&nbsp;
-        <span style="font-family:'DM Mono',monospace;font-size:10px;">Adobe Photoshop / Illustrator</span>
-      </p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;">
-        <div>
-          <div class="poster-section-label">电影下乡系列</div>
+    <div class="poster-section reveal">
+      <p class="poster-intro">涵盖电影活动主视觉、宣传物料设计与个人创作实践。&ensp;<em>Adobe Photoshop / Illustrator</em></p>
+      <div class="poster-cols">
+        <div class="poster-col">
+          <div class="poster-col-label">电影下乡系列</div>
           <div class="poster-grid">
             <div class="poster-cell"><span>01</span></div>
             <div class="poster-cell"><span>02</span></div>
@@ -240,8 +313,8 @@
             <div class="poster-cell"><span>04</span></div>
           </div>
         </div>
-        <div>
-          <div class="poster-section-label">个人创作</div>
+        <div class="poster-col">
+          <div class="poster-col-label">个人创作</div>
           <div class="poster-grid">
             <div class="poster-cell"><span>01</span></div>
             <div class="poster-cell"><span>02</span></div>
@@ -257,55 +330,78 @@
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-wrap">
-    <div class="section-header fade-up">
-      <span class="section-num">03 ——</span>
-      <h2 class="section-title-cn">实习经历</h2>
-      <span class="section-title-en">Experience</span>
+    <div class="section-header reveal">
+      <div class="section-num">03</div>
+      <div class="section-title-block">
+        <h2 class="section-title-cn">实习经历</h2>
+        <span class="section-title-en">Experience</span>
+      </div>
+      <div class="section-line"></div>
     </div>
-    <div class="exp-grid fade-up">
-      <div class="exp-card">
-        <div class="exp-accent"></div>
-        <div class="exp-period">2024.08 — 2025.01 &nbsp;·&nbsp; 北京</div>
-        <div class="exp-company">快手科技</div>
-        <div class="exp-role">市场实习生 · Marketing Intern</div>
-        <ul class="exp-bullets">
-          <li>完整参与两部纪录片全案：《像岩石一样生活》《西北刀客》</li>
-          <li>首次将可灵AI引入纪录片制作流程，探索AI工具在纪实影像中的应用</li>
-          <li>负责策划、拍摄、传播、KOL建联与数据分析全链路</li>
-        </ul>
+    <div class="exp-list">
+      <div class="exp-item reveal">
+        <div class="exp-left">
+          <div class="exp-period">2024.08 — 2025.01</div>
+          <div class="exp-location">北京</div>
+          <div class="exp-accent-bar"></div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-company">快手科技</div>
+          <div class="exp-role">市场实习生 · Marketing Intern</div>
+          <ul class="exp-bullets">
+            <li>完整参与两部纪录片全案：《像岩石一样生活》《西北刀客》</li>
+            <li>首次将可灵AI引入纪录片制作流程，探索AI工具在纪实影像中的应用</li>
+            <li>负责策划、拍摄、传播、KOL建联与数据分析全链路</li>
+          </ul>
+        </div>
       </div>
-      <div class="exp-card">
-        <div class="exp-accent"></div>
-        <div class="exp-period">2025.04 — 2025.07 &nbsp;·&nbsp; 北京</div>
-        <div class="exp-company">哇唧唧哇有限公司</div>
-        <div class="exp-role">制片实习生 · Production Intern</div>
-        <ul class="exp-bullets">
-          <li>参与《毛雪汪》等多档综艺节目全流程筹备，协助主场景创意策划</li>
-          <li>配合摄影组多机位现场执行，协同艺统组完成艺人服务</li>
-          <li>协调可口可乐、卫龙两家品牌方植入落地，推动商业转化顺利实现</li>
-        </ul>
+      <div class="exp-item reveal">
+        <div class="exp-left">
+          <div class="exp-period">2025.04 — 2025.07</div>
+          <div class="exp-location">北京</div>
+          <div class="exp-accent-bar"></div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-company">哇唧唧哇有限公司</div>
+          <div class="exp-role">制片实习生 · Production Intern</div>
+          <ul class="exp-bullets">
+            <li>参与《毛雪汪》等多档综艺节目全流程筹备，协助主场景创意策划</li>
+            <li>配合摄影组多机位现场执行，协同艺统组完成艺人服务</li>
+            <li>协调可口可乐、卫龙两家品牌方植入落地，推动商业转化顺利实现</li>
+          </ul>
+        </div>
       </div>
-      <div class="exp-card">
-        <div class="exp-accent"></div>
-        <div class="exp-period">2024.12 — 2025.01 &nbsp;·&nbsp; 北京</div>
-        <div class="exp-company">《人物》杂志</div>
-        <div class="exp-role">内容运营实习生 · Content Operations Intern</div>
-        <ul class="exp-bullets">
-          <li>统筹管理微博、小红书、公众号等多平台账号，独立完成选题策划与原创内容撰写，输出文案 100+ 篇</li>
-          <li>累计阅读量突破 1,000万+，单篇最高 100万+，粉丝量增长 5万+</li>
-          <li>定期输出多维度运营数据分析报告，为账号运营方向提供量化决策依据</li>
-        </ul>
+      <div class="exp-item reveal">
+        <div class="exp-left">
+          <div class="exp-period">2024.12 — 2025.01</div>
+          <div class="exp-location">北京</div>
+          <div class="exp-accent-bar"></div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-company">《人物》杂志</div>
+          <div class="exp-role">内容运营实习生 · Content Operations Intern</div>
+          <ul class="exp-bullets">
+            <li>统筹管理微博、小红书、公众号等多平台账号，独立完成选题策划与原创内容撰写，输出文案 100+ 篇</li>
+            <li>累计阅读量突破 1,000万+，单篇最高 100万+，粉丝量增长 5万+</li>
+            <li>定期输出多维度运营数据分析报告，为账号运营方向提供量化决策依据</li>
+          </ul>
+        </div>
       </div>
-      <div class="exp-card">
-        <div class="exp-accent"></div>
-        <div class="exp-period">2024.08 — 2024.12 &nbsp;·&nbsp; 北京</div>
-        <div class="exp-company">1905电影网</div>
-        <div class="exp-role">内容实习生 · Content Intern</div>
-        <ul class="exp-bullets">
-          <li>独立撰写 100+ 篇专业影评，整理维护 100+ 部影片结构化资料库</li>
-          <li>参与电影日历出版项目，负责物料统筹并推动正式出版</li>
-          <li>成品进入北京市门头沟政府采购清单</li>
-        </ul>
+      <div class="exp-item reveal">
+        <div class="exp-left">
+          <div class="exp-period">2024.08 — 2024.12</div>
+          <div class="exp-location">北京</div>
+          <div class="exp-accent-bar"></div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-company">1905电影网</div>
+          <div class="exp-role">内容实习生 · Content Intern</div>
+          <ul class="exp-bullets">
+            <li>独立撰写 100+ 篇专业影评，整理维护 100+ 部影片结构化资料库</li>
+            <li>参与电影日历出版项目，负责物料统筹并推动正式出版</li>
+            <li>成品进入北京市门头沟政府采购清单</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -314,70 +410,100 @@
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-wrap">
-    <div class="section-header fade-up">
-      <span class="section-num">04 ——</span>
-      <h2 class="section-title-cn">技能</h2>
-      <span class="section-title-en">Skills</span>
+    <div class="section-header reveal">
+      <div class="section-num">04</div>
+      <div class="section-title-block">
+        <h2 class="section-title-cn">技能</h2>
+        <span class="section-title-en">Skills</span>
+      </div>
+      <div class="section-line"></div>
     </div>
-    <table class="skills-table fade-up">
-      <tr>
-        <td class="skill-cat-cell"><span class="skill-icon">🎬</span>影视制作</td>
-        <td><div class="chips"><span class="chip">Premiere Pro</span><span class="chip">Photoshop</span><span class="chip">Illustrator</span></div></td>
-      </tr>
-      <tr>
-        <td class="skill-cat-cell"><span class="skill-icon">🤖</span>AI 工具</td>
-        <td><div class="chips"><span class="chip">Claude</span><span class="chip">ChatGPT</span><span class="chip">Midjourney</span></div></td>
-      </tr>
-      <tr>
-        <td class="skill-cat-cell"><span class="skill-icon">📊</span>数据分析</td>
-        <td><div class="chips"><span class="chip">Python</span><span class="chip">Excel</span></div></td>
-      </tr>
-      <tr>
-        <td class="skill-cat-cell"><span class="skill-icon">📱</span>内容运营</td>
-        <td><div class="chips"><span class="chip">微博</span><span class="chip">抖音</span><span class="chip">快手</span><span class="chip">公众号</span><span class="chip">小红书</span></div></td>
-      </tr>
-      <tr>
-        <td class="skill-cat-cell"><span class="skill-icon">📝</span>内容写作</td>
-        <td><div class="chips"><span class="chip">策划案</span><span class="chip">特稿</span><span class="chip">影评</span><span class="chip">运营报告</span></div></td>
-      </tr>
-      <tr>
-        <td class="skill-cat-cell"><span class="skill-icon">🖥️</span>办公协作</td>
-        <td><div class="chips"><span class="chip">Office全家桶</span><span class="chip">协同文档</span></div></td>
-      </tr>
-    </table>
+    <div class="skills-grid reveal">
+      <div class="skill-row">
+        <div class="skill-cat"><span class="skill-icon">🎬</span><span>影视制作</span></div>
+        <div class="skill-items">
+          <span class="skill-tag">Premiere Pro</span>
+          <span class="skill-tag">Photoshop</span>
+          <span class="skill-tag">Illustrator</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat"><span class="skill-icon">🤖</span><span>AI 工具</span></div>
+        <div class="skill-items">
+          <span class="skill-tag">Claude</span>
+          <span class="skill-tag">ChatGPT</span>
+          <span class="skill-tag">Midjourney</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat"><span class="skill-icon">📊</span><span>数据分析</span></div>
+        <div class="skill-items">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Excel</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat"><span class="skill-icon">📱</span><span>内容运营</span></div>
+        <div class="skill-items">
+          <span class="skill-tag">微博</span>
+          <span class="skill-tag">抖音</span>
+          <span class="skill-tag">快手</span>
+          <span class="skill-tag">公众号</span>
+          <span class="skill-tag">小红书</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat"><span class="skill-icon">📝</span><span>内容写作</span></div>
+        <div class="skill-items">
+          <span class="skill-tag">策划案</span>
+          <span class="skill-tag">特稿</span>
+          <span class="skill-tag">影评</span>
+          <span class="skill-tag">运营报告</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat"><span class="skill-icon">🖥️</span><span>办公协作</span></div>
+        <div class="skill-items">
+          <span class="skill-tag">Office全家桶</span>
+          <span class="skill-tag">协同文档</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-wrap">
-    <div class="section-header fade-up">
-      <span class="section-num">05 ——</span>
-      <h2 class="section-title-cn">联系我</h2>
-      <span class="section-title-en">Let's Connect</span>
-    </div>
-    <div class="contact-layout fade-up">
-      <div>
-        <div class="contact-headline">Let's make<br><em>something</em><br>great together.</div>
-        <p class="contact-sub"></p>
+    <div class="section-header reveal">
+      <div class="section-num">05</div>
+      <div class="section-title-block">
+        <h2 class="section-title-cn">联系我</h2>
+        <span class="section-title-en">Let's Connect</span>
       </div>
-      <div class="contact-items">
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-layout reveal">
+      <div class="contact-headline-block">
+        <p class="contact-headline">Let's make<br><em>something</em><br>great together.</p>
+      </div>
+      <div class="contact-info-block">
         <div class="contact-row">
-          <div class="contact-icon">📧</div>
-          <div><div class="contact-label">Email</div><div class="contact-value">377172639@qq.com</div></div>
+          <div class="contact-row-label">Email</div>
+          <div class="contact-row-value">377172639@qq.com</div>
         </div>
         <div class="contact-row">
-          <div class="contact-icon">💬</div>
-          <div><div class="contact-label">WeChat</div><div class="contact-value">bornfree0714</div></div>
+          <div class="contact-row-label">WeChat</div>
+          <div class="contact-row-value">bornfree0714</div>
         </div>
         <div class="contact-row">
-          <div class="contact-icon">📱</div>
-          <div><div class="contact-label">Phone</div><div class="contact-value">180-9638-7829</div></div>
+          <div class="contact-row-label">Phone</div>
+          <div class="contact-row-value">180-9638-7829</div>
         </div>
       </div>
     </div>
     <div class="footer-bar">
-      <p>© 2026 &nbsp;颜诗雨 · Yan Shiyu</p>
+      <p>© 2026 &ensp;颜诗雨 · Yan Shiyu</p>
       <p>北京师范大学 · 戏剧影视文学 · Class of 2026</p>
     </div>
   </div>
